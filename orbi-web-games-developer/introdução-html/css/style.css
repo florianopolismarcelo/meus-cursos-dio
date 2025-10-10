@@ -47,3 +47,15 @@ a {
   margin-bottom: 15px;
   
 }
+
+.contacts_list {
+  list-style-type: none;
+  /* list-style-type: square; */
+  padding-left: 15px;
+}
+
+.contacts_list li a{
+  color: blue;
+  text-decoration: none;
+ 
+}
