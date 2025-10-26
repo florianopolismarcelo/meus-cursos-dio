@@ -1,5 +1,12 @@
 function changeMode() {
-  console.log("clicou no botão")
+  changeClasses()
+}
+
+function changeClasses() {
+  button.classList.toggle("dark-mode")
+  h1.classList.toggle("dark-mode")
+  body.classList.toggle("dark-mode")
+  footer.classList.toggle("dark-mode")
 }
 
 const button = document.getElementById("mode-selector")
