@@ -94,5 +94,5 @@ function start() {
       $("#amigo").css("left", 0)
     }
   } // Fim da função moveamigo()
-  
+
 } // Fim da função start()
