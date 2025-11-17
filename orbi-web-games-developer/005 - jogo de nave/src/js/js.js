@@ -35,6 +35,7 @@ function start() {
     moveinimigo1()
     moveinimigo2()
     moveamigo()
+    colisao()
   } // Fim da função loop()
 
   // função que movimenta o fundo do jogo
@@ -124,6 +125,17 @@ function start() {
         $("#disparo").remove()
         podeAtirar = true
       }
+    } // Fim da função executaDisparo()
+  } // Fim da função disparo()
+
+  function colisao() {
+    var colisao1 = $("#jogador").collision($("#inimigo1"))
+    // jogador com inimigo1
+    if (colisao1.length > 0) {
+      
+      posicaoY = parseInt(Math.random() * 334)
+      $("#inimigo1").css("left", 694)
+      $("#inimigo1").css("top", posicaoY)
     }
-  }
+  } // Fim da função colisao()
 } // Fim da função start()
