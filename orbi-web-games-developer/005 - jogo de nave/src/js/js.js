@@ -156,6 +156,19 @@ function start() {
       $("#inimigo2").remove()
       reposicionaInimigo2()
     }
+
+    // disparo com o inimigo 1, helicóptero
+    if (colisao3.length > 0) {
+      inimigo1X = parseInt($("#inimigo1").css("left"))
+      inimigo1Y = parseInt($("#inimigo1").css("top"))
+
+      explosao1(inimigo1X, inimigo1Y)
+      $("#disparo").css("left", 950)
+
+      posicaoY = parseInt(Math.random() * 334)
+      $("#inimigo1").css("left", 694)
+      $("#inimigo1").css("top", posicaoY)
+    }
   } // Fim da função colisao()
 
   // explosão 1
