@@ -180,6 +180,12 @@ function start() {
       $("#disparo").css("left", 950)
       reposicionaInimigo2()
     }
+
+    // jogador com o amigo
+    if (colisao5.length > 0) {
+      reposicionaAmigo()
+      $("#amigo").remove()
+    }
   } // Fim da função colisao()
 
   // explosão 1
@@ -239,4 +245,18 @@ function start() {
       tempoExplosao2 = null
     }
   } // Fim da função explosao2()
+
+  // função que reposiciona o amigo
+  function reposicionaAmigo() {
+    var tempoAmigo = window.setInterval(reposiciona6, 6000)
+
+    function reposiciona6() {
+      window.clearInterval(tempoAmigo)
+      tempoAmigo = null
+
+      if (fimdejogo == false) {
+        $("#fundoGame").append("<div id='amigo' class='anima3'></div>")
+      }
+    }
+  } // Fim da função reposicionaAmigo()
 } // Fim da função start()
