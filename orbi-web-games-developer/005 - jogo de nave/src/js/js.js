@@ -186,6 +186,15 @@ function start() {
       reposicionaAmigo()
       $("#amigo").remove()
     }
+    // colisão inimigo2 (caminhão com o amigo)
+    if (colisao6.length > 0) {
+      amigoX = parseInt($("#amigo").css("left"))
+      amigoY = parseInt($("#amigo").css("top"))
+      explosao3(amigoX, amigoY)
+      $("#amigo").remove()
+
+      reposicionaAmigo()
+    }
   } // Fim da função colisao()
 
   // explosão 1
