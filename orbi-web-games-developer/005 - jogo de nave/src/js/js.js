@@ -268,4 +268,19 @@ function start() {
       }
     }
   } // Fim da função reposicionaAmigo()
+
+  // explosão 3
+
+  function explosao3(amigoX, amigoY) {
+    $("#fundoGame").append("<div id='explosao3' class='anima4'></div")
+    $("#explosao3").css("top", amigoY)
+    $("#explosao3").css("left", amigoX)
+    var tempoExplosao3 = window.setInterval(removeExplosao3, 1000)
+
+    function removeExplosao3() {
+      $("#explosao3").remove()
+      window.clearInterval(tempoExplosao3)
+      tempoExplosao3 = null
+    }
+  } // Fim da função explosao3()
 } // Fim da função start()
