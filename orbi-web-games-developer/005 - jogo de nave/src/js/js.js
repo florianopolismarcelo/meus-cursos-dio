@@ -365,3 +365,10 @@ function start() {
     )
   } // Fim da função gameOver()
 } // Fim da função start()
+
+// função que reinicia o jogo novamente
+function reiniciaJogo() {
+    somGameover.pause();
+    $("#fim").remove();
+    start();
+}
