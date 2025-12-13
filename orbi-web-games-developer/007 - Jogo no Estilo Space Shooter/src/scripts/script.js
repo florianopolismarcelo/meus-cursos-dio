@@ -38,3 +38,10 @@ function moveDown() {
     yourShip.style.top = `${position}px`;
   }
 }
+
+// funcionalidade de tiro
+function fireLaser() {
+  let laser = createLaserElement();
+  playArea.appendChild(laser);
+  moveLaser(laser);
+}
