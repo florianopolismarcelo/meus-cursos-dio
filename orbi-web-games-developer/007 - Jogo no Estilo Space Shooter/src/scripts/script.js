@@ -1,5 +1,10 @@
 const yourShip = document.querySelector(".player-shooter");
 const playArea = document.querySelector("#main-play-area");
+const aliensImg = [
+  "img/monster-1.png",
+  "img/monster-2.png",
+  "img/monster-3.png",
+];
 
 // movimento e tiro da nave
 function flyShip(event) {
@@ -63,23 +68,36 @@ function createLaserElement() {
 
 // função de movimentação do tiro
 function moveLaser(laser) {
-    let laserInterval = setInterval(() => {
-        let xPosition = parseInt(laser.style.left);
-        let aliens = document.querySelectorAll('.alien');
+  let laserInterval = setInterval(() => {
+    let xPosition = parseInt(laser.style.left);
+    let aliens = document.querySelectorAll(".alien");
 
-        aliens.forEach((alien) => { //comparando se cada alien foi atingido, se sim, troca o src da imagem
-            if(checkLaserCollision(laser, alien)) {
-                alien.src = 'img/explosion.png';
-                alien.classList.remove('alien');
-                alien.classList.add('dead-alien');
-            }
-        })
+    aliens.forEach((alien) => {
+      //comparando se cada alien foi atingido, se sim, troca o src da imagem
+      if (checkLaserCollision(laser, alien)) {
+        alien.src = "img/explosion.png";
+        alien.classList.remove("alien");
+        alien.classList.add("dead-alien");
+      }
+    });
 
-        if(xPosition === 340) {
-            laser.remove();
-        } else {
-            laser.style.left = `${xPosition + 8}px`;
-        }
-    }, 10);
+    if (xPosition === 340) {
+      laser.remove();
+    } else {
+      laser.style.left = `${xPosition + 8}px`;
+    }
+  }, 10);
 }
 
+// função para criar inimigos aleatórios
+function createAliens() {
+  let newAlien = document.createElement("img");
+  let alienSprite = aliensImg[Math.floor(Math.random() * aliensImg.length)]; // sorteio de imagens
+  newAlien.src = alienSprite;
+  newAlien.classList.add("alien");
+  newAlien.classList.add("alien-transition");
+  newAlien.style.left = "370px";
+  newAlien.style.top = `${Math.floor(Math.random() * 330) + 30}px`;
+  playArea.appendChild(newAlien);
+  moveAlien(newAlien);
+}
